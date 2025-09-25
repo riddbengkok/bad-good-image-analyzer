@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:photo_analyzer/providers/photo_provider.dart';
-import 'package:photo_analyzer/services/auth_service_working.dart';
+import 'package:photo_analyzer/services/auth_service_simple.dart';
 import 'package:photo_analyzer/utils/constants.dart';
 import 'package:photo_analyzer/widgets/stat_card.dart';
 import 'package:photo_analyzer/widgets/gradient_button.dart';
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Future<void> _signOut() async {
     try {
-      final authService = context.read<AuthService>();
+      final authService = context.read<AuthServiceSimple>();
       await authService.signOut();
       // Navigation will be handled by AuthWrapper
       if (mounted) {
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         backgroundColor: AppColors.surface,
         elevation: 0,
         actions: [
-          Consumer<AuthService>(
+          Consumer<AuthServiceSimple>(
             builder: (context, authService, child) {
               return PopupMenuButton<String>(
                 onSelected: (value) {
@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         position: _slideAnimation,
                         child: FadeTransition(
                           opacity: _fadeAnimation,
-                          child: Consumer<AuthService>(
+                          child: Consumer<AuthServiceSimple>(
                             builder: (context, authService, child) {
                               return Container(
                                 padding: const EdgeInsets.all(20),
