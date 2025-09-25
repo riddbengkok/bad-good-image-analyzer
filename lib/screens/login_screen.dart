@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:photo_analyzer/services/auth_service_working.dart';
+import 'package:photo_analyzer/services/auth_service.dart';
 import 'package:photo_analyzer/utils/constants.dart';
 import 'package:photo_analyzer/widgets/gradient_button.dart';
 
@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin
       final result = await authService.signInWithGoogle();
       print('DEBUG: Google sign-in result: $result');
       
-      if (result && mounted) {
+      if (result != null && mounted) {
         // Navigation will be handled by AuthWrapper
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
