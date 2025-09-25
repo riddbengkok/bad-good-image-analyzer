@@ -53,19 +53,17 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyBvOkBwJqE8kQ1wX2yZ3aB4cD5eF6gH7iJ8k',
     appId: '1:123456789012:web:abcdef1234567890abcdef',
     messagingSenderId: '123456789012',
-    projectId: 'photo-analyzer-demo',
-    authDomain: 'photo-analyzer-demo.firebaseapp.com',
-    storageBucket: 'photo-analyzer-demo.appspot.com',
-    measurementId: 'G-ABCDEFGHIJ',
+    projectId: 'photo-analyzer-app',
+    authDomain: 'photo-analyzer-app.firebaseapp.com',
+    storageBucket: 'photo-analyzer-app.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBvOkBwJqE8kQ1wX2yZ3aB4cD5eF6gH7iJ8k',
     appId: '1:123456789012:ios:abcdef1234567890abcdef',
     messagingSenderId: '123456789012',
-    projectId: 'photo-analyzer-demo',
-    authDomain: 'photo-analyzer-demo.firebaseapp.com',
-    storageBucket: 'photo-analyzer-demo.appspot.com',
+    projectId: 'photo-analyzer-app',
+    storageBucket: 'photo-analyzer-app.appspot.com',
     iosBundleId: 'com.example.photoAnalyzer',
   );
 }

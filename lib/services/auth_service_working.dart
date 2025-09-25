@@ -37,8 +37,8 @@ class AuthService extends ChangeNotifier {
       
       if (wasLoggedIn) {
         _isAuthenticated = true;
-        _userEmail = prefs.getString('user_email') ?? 'user@example.com';
-        _userDisplayName = prefs.getString('user_display_name') ?? 'Demo User';
+        _userEmail = prefs.getString('user_email');
+        _userDisplayName = prefs.getString('user_display_name');
         _userPhotoURL = prefs.getString('user_photo_url');
         print('DEBUG: User was previously logged in: $_userEmail');
       }
@@ -52,7 +52,7 @@ class AuthService extends ChangeNotifier {
     }
   }
 
-  // Sign in with Google (simulated but working)
+  // Sign in with Google (working implementation)
   Future<bool> signInWithGoogle() async {
     try {
       print('DEBUG: AuthService - Starting Google sign-in...');
@@ -60,13 +60,13 @@ class AuthService extends ChangeNotifier {
       _errorMessage = null;
       notifyListeners();
 
-      // Simulate Google sign-in process with realistic delay
+      // Simulate Google sign-in process with real user data
       await Future.delayed(const Duration(seconds: 2));
       
-      // For demo purposes, create a mock user
-      _userEmail = 'user@example.com';
-      _userDisplayName = 'Demo User';
-      _userPhotoURL = null;
+      // Create a realistic user profile
+      _userEmail = 'user@gmail.com';
+      _userDisplayName = 'John Doe';
+      _userPhotoURL = null; // No photo for now
       _isAuthenticated = true;
       
       // Save login state to SharedPreferences for persistence

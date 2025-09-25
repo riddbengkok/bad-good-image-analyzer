@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:photo_analyzer/providers/photo_provider.dart';
-import 'package:photo_analyzer/services/auth_service_simple.dart';
+import 'package:photo_analyzer/services/auth_service_working.dart';
 import 'package:photo_analyzer/screens/login_screen.dart';
 import 'package:photo_analyzer/screens/home_screen.dart';
 import 'package:photo_analyzer/screens/analysis_screen.dart';
 import 'package:photo_analyzer/screens/review_screen.dart';
 import 'package:photo_analyzer/utils/constants.dart';
-// import 'firebase_options.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Temporarily disable Firebase to resolve iOS build issues
-  // TODO: Re-enable Firebase after resolving header import issues
+  // Temporarily disable Firebase initialization
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
