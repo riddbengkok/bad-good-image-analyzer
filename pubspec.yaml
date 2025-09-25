@@ -35,10 +35,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   
-  # Firebase Authentication
-  firebase_core: ^3.15.2
-  firebase_auth: ^5.7.0
-  google_sign_in: ^6.3.0
+  # Firebase Authentication (temporarily disabled due to iOS build issues)
+  # firebase_core: ^3.15.2
+  # firebase_auth: ^5.7.0
+  # google_sign_in: ^6.3.0
   
   # Photo analysis and permissions (mobile only)
   photo_manager: ^3.7.1

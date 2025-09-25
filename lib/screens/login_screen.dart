@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:photo_analyzer/services/auth_service.dart';
+import 'package:photo_analyzer/services/auth_service_simple.dart';
 import 'package:photo_analyzer/utils/constants.dart';
 import 'package:photo_analyzer/widgets/gradient_button.dart';
 

@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:photo_analyzer/providers/photo_provider.dart';
-import 'package:photo_analyzer/services/auth_service.dart';
+import 'package:photo_analyzer/services/auth_service_simple.dart';
 import 'package:photo_analyzer/screens/login_screen.dart';
 import 'package:photo_analyzer/screens/home_screen.dart';
 import 'package:photo_analyzer/screens/analysis_screen.dart';
 import 'package:photo_analyzer/screens/review_screen.dart';
 import 'package:photo_analyzer/utils/constants.dart';
-import 'firebase_options.dart';
+// import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Initialize Firebase
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // Temporarily disable Firebase to resolve iOS build issues
+  // TODO: Re-enable Firebase after resolving header import issues
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
   
   runApp(const PhotoAnalyzerApp());
 }
@@ -127,7 +128,7 @@ class AuthWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AuthService>(
       builder: (context, authService, child) {
-        return StreamBuilder<User?>(
+        return StreamBuilder<bool>(
           stream: authService.authStateChanges,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
@@ -141,7 +142,7 @@ class AuthWrapper extends StatelessWidget {
               );
             }
 
-            if (snapshot.hasData && snapshot.data != null) {
+            if (snapshot.hasData && snapshot.data == true) {
               // User is signed in
               return const HomeScreen();
             } else {
