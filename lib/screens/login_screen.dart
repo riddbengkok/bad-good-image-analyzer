@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin
   Future<void> _signInWithGoogle() async {
     try {
       print('DEBUG: Starting Google sign-in process...');
-      final authService = context.read<AuthServiceSimple>();
+      final authService = context.read<AuthService>();
       
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -198,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin
                   opacity: _fadeAnimation,
                   child: Column(
                     children: [
-                      Consumer<AuthServiceSimple>(
+                      Consumer<AuthService>(
                         builder: (context, authService, child) {
                           return GradientButton(
                             onPressed: authService.isLoading ? null : _signInWithGoogle,

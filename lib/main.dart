@@ -30,7 +30,7 @@ class PhotoAnalyzerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => AuthServiceSimple()),
+        ChangeNotifierProvider(create: (_) => AuthService()),
         ChangeNotifierProvider(create: (_) => PhotoProvider()),
       ],
       child: MaterialApp(
@@ -126,7 +126,7 @@ class AuthWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AuthServiceSimple>(
+    return Consumer<AuthService>(
       builder: (context, authService, child) {
         return StreamBuilder<bool>(
           stream: authService.authStateChanges,

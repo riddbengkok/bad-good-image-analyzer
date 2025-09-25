@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Future<void> _signOut() async {
     try {
-      final authService = context.read<AuthServiceSimple>();
+      final authService = context.read<AuthService>();
       await authService.signOut();
       // Navigation will be handled by AuthWrapper
       if (mounted) {
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         backgroundColor: AppColors.surface,
         elevation: 0,
         actions: [
-          Consumer<AuthServiceSimple>(
+          Consumer<AuthService>(
             builder: (context, authService, child) {
               return PopupMenuButton<String>(
                 onSelected: (value) {
@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         position: _slideAnimation,
                         child: FadeTransition(
                           opacity: _fadeAnimation,
-                          child: Consumer<AuthServiceSimple>(
+                          child: Consumer<AuthService>(
                             builder: (context, authService, child) {
                               return Container(
                                 padding: const EdgeInsets.all(20),
